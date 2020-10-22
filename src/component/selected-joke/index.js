@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Categories from './categories.js';
 
-const SelectJoke = () => {
+const SelectedJoke = () => {
     const myRef = React.createRef();
 
 	const JOKE_URL = 'https://api.chucknorris.io/jokes/random?category=';
@@ -32,4 +32,4 @@ const SelectJoke = () => {
     );
 };
 
-export default SelectJoke;
+export default SelectedJoke;
