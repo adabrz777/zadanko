@@ -1,6 +1,12 @@
 import React from 'react';
 import Item from './item.js';
 
+
+import { Button, Input, Typography } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
+
+import './index.css';
+
 class Peoples extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,28 +22,36 @@ class Peoples extends React.Component {
 				},
 				{
 					name: 'Mateusz',
-					surname: 'Iksiński'
+					surname: 'Nowakowski'
 				}
 			],
 
 			newName: '',
-			newSurname: ''
+			newSurname: '',
+			errorMessane: ''
 		};
 	}
 
 	addItem = (e) => {
 		e.preventDefault();
+		let { list, newName, newSurname } = this.state;
 
-		let list = this.state.list;
+		if (newName === '' || newSurname === '') {
+			this.setState({
+				errorMessane: 'Uzupełnij pola!'
+			});
+		} else {
+			list.push({
+				name: this.state.newName,
+				surname: this.state.newSurname
+			});
 
-		list.push({
-			name: this.state.newName,
-			surname: this.state.newSurname
-		});
-
-		this.setState({
-			list
-		});
+			this.setState({
+				list: list,
+				newName: '',
+				newSurname: ''
+			});
+		}
 	};
 
 	deleteItem = (itemNr) => {
@@ -78,19 +92,19 @@ class Peoples extends React.Component {
 	};
 
 	render() {
-		const { list, newName, newSurname } = this.state;
+		const { list, newName, newSurname, errorMessane } = this.state;
 		const { deleteItem, addItem, updateItem, handleNewNameChange, handleNewSurnameChange } = this;
 
 		return (
-			<div>
+			<div className='Peoples'>
 				<table>
-                    <thead>
-                    <tr>
-						<th>Imię</th>
-						<th>Nazwisko</th>
-						<th>Opcje</th>
-					</tr>
-                    </thead>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Surname</th>
+							<th>Options</th>
+						</tr>
+					</thead>
 					<tbody>
 						{list.map((i, key) => (
 							<Item
@@ -104,15 +118,13 @@ class Peoples extends React.Component {
 						))}
 					</tbody>
 				</table>
-
-				<form onSubmit={addItem}>
-					Imię: <input type="text" value={newName} placeholder="imię" onChange={handleNewNameChange} />
-					<br />
-					nazwisko:{' '}
-					<input type="text" value={newSurname} placeholder="nazwisko" onChange={handleNewSurnameChange} />
-					<br />
-					<input type="submit" value="DODAJ" />
-				</form>
+				<Input type="text" value={newName} placeholder="Name" onChange={handleNewNameChange} />{' '}
+				<Input type="text" value={newSurname} placeholder="Surname" onChange={handleNewSurnameChange} />{' '}
+				<Button type="primary" onClick={addItem}>
+					ADD <CheckOutlined />
+				</Button>
+				<br />
+				<Typography.Text type="danger">{errorMessane}</Typography.Text>
 			</div>
 		);
 	}

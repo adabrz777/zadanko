@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Button, Input } from 'antd';
+import { EditFilled, DeleteFilled, CheckCircleFilled } from '@ant-design/icons';
 
 const Item = (props) => {
 	const [ name, setName ] = useState(props.name);
@@ -11,21 +13,16 @@ const Item = (props) => {
 				<td>{name}</td>
 				<td>{surname}</td>
 				<td>
-					<input
-						type="button"
-						value="EDIT"
+					<Button
 						onClick={() => {
 							setUpdating(true);
 						}}
-					/>
+					>EDIT <EditFilled /></Button>
 
-					<input
-						type="button"
-						value="DEL"
-						onClick={() => {
-							props.deleteItem(props.nr);
-						}}
-					/>
+					<Button
+						onClick={() => { props.deleteItem(props.nr) }}
+                        danger
+					>DEL <DeleteFilled /></Button>
 				</td>
 			</tr>
 		);
@@ -33,8 +30,7 @@ const Item = (props) => {
 		return (
 			<tr>
 				<td>
-					Imię:{' '}
-					<input
+					<Input
 						type="text"
 						onChange={(e) => {
 							setName(e.target.value);
@@ -42,8 +38,7 @@ const Item = (props) => {
 					/>
 				</td>
 				<td>
-					Nazwisko:{' '}
-					<input
+					<Input
 						type="text"
 						onChange={(e) => {
 							setSurname(e.target.value);
@@ -51,14 +46,12 @@ const Item = (props) => {
 					/>
 				</td>
 				<td>
-					<input
-						type="button"
-						value="DONE"
+					<Button
 						onClick={() => {
 							setUpdating(false);
 							props.updateItem(props.nr, name, surname);
 						}}
-					/>
+					>DONE <CheckCircleFilled /></Button>
 				</td>
 			</tr>
 		);

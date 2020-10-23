@@ -20,13 +20,12 @@ const SelectedJoke = () => {
 		[ selectedCategory ]
 	);
 
-    //TODO: use Ant Design
     
 	return (
         <div>
             {joke}<br/>
             <select onChange={()=>{setSelectedCategory(myRef.current.value)}} ref={myRef}>
-                <Categories />
+                Category: <Categories />
             </select>
         </div>
     );

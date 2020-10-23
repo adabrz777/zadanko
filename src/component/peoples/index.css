@@ -1,0 +1,19 @@
+table thead{
+    border: 1px solid black;
+}
+
+table tr:nth-child(2n){
+    background: rgb(241, 241, 241);
+}
+
+/* TODO: Style table */
+
+table{
+    min-width: 20vw;
+    padding: 0;
+    margin: 0;
+}
+
+thead, tr{
+    height: 2vw;
+}

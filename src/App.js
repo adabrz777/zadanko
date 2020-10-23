@@ -3,6 +3,8 @@ import Random from './component/random/index.js';
 import SelectedJoke from './component/selected-joke/index.js';
 import Peoples from './component/peoples/index.js';
 
+import 'antd/dist/antd.css';
+
 import './App.css';
 
 function App() {
