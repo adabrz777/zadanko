@@ -13,16 +13,16 @@ class Peoples extends React.Component {
 		this.state = {
 			list: [
 				{
-					name: 'Adam',
-					surname: 'Kowalski'
+					name: 'Janusz1',
+					surname: 'Kowalski1'
 				},
 				{
-					name: 'Jakub',
-					surname: 'Nowak'
+					name: 'Janusz2',
+					surname: 'Kowalski2'
 				},
 				{
-					name: 'Mateusz',
-					surname: 'Nowakowski'
+					name: 'Janusz3',
+					surname: 'Kowalski3'
 				}
 			],
 
