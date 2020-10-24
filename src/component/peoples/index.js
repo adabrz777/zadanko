@@ -49,7 +49,8 @@ class Peoples extends React.Component {
 			this.setState({
 				list: list,
 				newName: '',
-				newSurname: ''
+				newSurname: '',
+				errorMessane: ''
 			});
 		}
 	};
@@ -118,13 +119,15 @@ class Peoples extends React.Component {
 						))}
 					</tbody>
 				</table>
-				<Input type="text" value={newName} placeholder="Name" onChange={handleNewNameChange} />{' '}
-				<Input type="text" value={newSurname} placeholder="Surname" onChange={handleNewSurnameChange} />{' '}
-				<Button type="primary" onClick={addItem}>
-					ADD <CheckOutlined />
-				</Button>
-				<br />
-				<Typography.Text type="danger">{errorMessane}</Typography.Text>
+				<form>
+					<Input type="text" value={newName} placeholder="Name" onChange={handleNewNameChange} />{' '}
+					<Input type="text" value={newSurname} placeholder="Surname" onChange={handleNewSurnameChange} />{' '}
+					<Button type="primary" onClick={addItem}>
+						ADD <CheckOutlined className='trash-bin--green' />
+					</Button>
+					<br />
+					<Typography.Text type="danger">{errorMessane}</Typography.Text>
+				</form>
 			</div>
 		);
 	}

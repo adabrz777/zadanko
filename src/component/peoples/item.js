@@ -30,19 +30,21 @@ const Item = (props) => {
 		return (
 			<tr>
 				<td>
-					<Input
+					<Input className='editInput'
 						type="text"
 						onChange={(e) => {
 							setName(e.target.value);
 						}}
+						value={name}
 					/>
 				</td>
 				<td>
-					<Input
+					<Input className='editInput'
 						type="text"
 						onChange={(e) => {
 							setSurname(e.target.value);
 						}}
+						value={surname}
 					/>
 				</td>
 				<td>
