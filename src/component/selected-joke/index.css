@@ -1,0 +1,18 @@
+.SelectedJoke{
+    width: max-content;
+    margin: 10%;
+    font-size: 1vw;
+}
+
+.SelectedJoke .GUI{
+    display: flex;
+    align-items: center;
+}
+
+.SelectedJoke .GUI select, .SelectedJoke .GUI Button{
+    text-transform: capitalize;
+    margin-left: 5px;
+    height: 100%;
+    font-size: 1vw;
+    padding: .1vw .2vw;
+}
