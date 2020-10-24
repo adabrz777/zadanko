@@ -1,5 +1,6 @@
 .Peoples{
     width: 40vw;
+    margin: 10%;
 }
 
 .Peoples thead{
@@ -12,9 +13,6 @@
 }
 
 .Peoples table{
-    /* padding: 0;
-    margin: 0; */
-    /* min-width: 20vw; */
     width: 100%;
 }
 
