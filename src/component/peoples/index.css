@@ -2,43 +2,42 @@
     width: 40vw;
 }
 
-table thead{
+.Peoples thead{
     border: 1px solid black;
 }
 
-table tr:nth-child(2n){
+.Peoples tr:nth-child(2n){
     background: rgb(238, 238, 238);
     width: 100%;
 }
 
-table{
+.Peoples table{
     /* padding: 0;
     margin: 0; */
     /* min-width: 20vw; */
     width: 100%;
 }
 
-tr{
+.Peoples tr{
     display: grid;
     grid-template-columns: 3fr 3fr 2fr;
     align-items: center;
     justify-items: center;
 }
 
-td, th{
+.Peoples td, .Peoples th{
     text-align: center;
     padding: .5vw;
     text-transform: capitalize;
 }
 
-form{
+.Peoples form{
     width: 100%;
     display: grid;
     grid-template-columns: 5fr 5fr 2fr;
     column-gap: 1%;
 }
 
-.editInput{
-    width: 100% !important;
+.Peoples .editInput{
     text-align: center;
 }
