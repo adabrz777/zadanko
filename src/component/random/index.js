@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import useSWR from 'swr';
 
+import './index.css';
+
 const Random = () => {
     const [joke, setJoke] = useState('');
+    const [timeToNewJoke, setTimeToNewJoke] = useState(10);
 
     const API_URL = 'https://api.chucknorris.io/jokes/random';
 
@@ -16,12 +19,21 @@ const Random = () => {
             value=data.value;
         
         setJoke(value);
+        setTimeToNewJoke(10);
     }, [data])
     
 
+    useEffect(()=>{
+        setTimeout(()=>{
+            if(timeToNewJoke >= 1) setTimeToNewJoke(timeToNewJoke - 1);
+        }, 1000)
+
+    }, [joke, timeToNewJoke])
+    
     return ( 
-        <div>
-            {joke}
+        <div className='Random'>
+            {joke} <br/>
+            New joke for: {timeToNewJoke}s
         </div> 
     );
 }
